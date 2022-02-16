@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - CanvasCal</title>
+        {% else %}
+        <title>Welcome to CanvasCal</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            CanvasCal: <a href="/index">Home</a>
+            <a href="/calendar">Calendar</a>
+            <a href="/todolist">Todo<a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
