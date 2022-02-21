@@ -1,0 +1,28 @@
+<html>
+    <body>
+
+        <h1>Class schedule for {{ msg }}</h1>
+
+        <table border = 1>
+            <thead>
+
+                <td>Class</td>
+                <td>Teacher</td>
+                <td>Classtime</td>
+
+            </thead>
+
+            {% for row in rows%}
+                <tr>
+
+                    <td>{{row["Class"]}}</td>
+                    <td>{{row["Teacher"]}}</td>
+                    <td>{{row["Classtime]}}</td>
+
+                </tr>
+            {% end for %}
+
+        </table>
+
+    </body>
+</html>
