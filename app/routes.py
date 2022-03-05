@@ -5,7 +5,7 @@ from app import app
 @app.route('/index')
 def index():
     user = {'username': 'Arturo'}
-    return render_template('index.html', title='Home', user=user)
+    return render_template('MainPage.html', title='Home', user=user)
 
 @app.route('/calendar')
 def calendar():
