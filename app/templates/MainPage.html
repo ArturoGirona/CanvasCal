@@ -1,10 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(function(){
+      $("#includedContent").load("calendar.html");
+    });
+    </script>
 <head>
 <title>Student Companion</title>
 <link rel="stylesheet" href="MainStyle.css">
 </head>
 <body>
+
 	<div class="workSpace">
 		<div class="header">
 			<h1>The Student Companion</h1>
@@ -37,6 +45,8 @@
 					</ul>
 				</div>
 				<p>Insert Calendar Here using Flask</p>
+
+				  <div id="includedContent"></div>
 			</div>
 		
 			<div class="sections other">
