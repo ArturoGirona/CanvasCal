@@ -220,5 +220,50 @@ body{
 	background-color: #bf935a;
 }
 
+/** THIS IS STYLING FOR SIGN-IN PAGE SPECIFICS**/
 
+.signin{
+	position: relative;
+	font-size: 18px;
+	width: 30%;
+	left: 35%;
+	height: 20%;
+	bottom: 40%;
+}
+
+#emailIn{
+	margin-top: 3px;
+	border: 1;
+	padding: 12px;
+	width: 392px;
+	text-align: left;
+}
+
+#pswrdIn{
+	margin-top: 3px;
+	border: 1;
+	padding: 12px;
+	width: 392px;
+	text-align: left;
+}
+
+.signinB{
+	margin-top: 10px;
+	border: 1;
+	font-size: 18px;
+	background-color: #782F40;
+	padding: 12px 180px;
+	transition-duration: .2s;
+}
+
+#wrongValue{
+	visibility: hidden;
+	height:0px;
+	color:#FF0000;
+	text-align: center;
+}
+
+.signinB:hover {
+	background-color: #580F20;
+}
 
