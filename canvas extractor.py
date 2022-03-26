@@ -6,8 +6,8 @@ from pprint import pprint
 
 canvas_url = 'https://canvas.instructure.com'
 
-# api = input("Please input API key")
-api = "10284~19SXSR0jhcLeQQ4Mvjmmgm8P2mKkXkNOSVcgMOQ5e4mv36GJcH8OtxkT0HzwdKis"
+api = input("Please input API key")
+
 
 header = {'Authorization': 'Bearer ' + api}
 
