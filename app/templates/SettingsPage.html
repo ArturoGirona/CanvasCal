@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Student Companion</title>
+<link rel="stylesheet" href="MainStyle.css">
+<script src="MainScript.js"></script>
+</head>
+<body>
+	<div class="workSpace">
+		<div class="header">
+			<h1>The Student Companion</h1>
+		</div>
+	
+	
+		<div class="headGap"><p></p></div>
+		
+		<div class="row">
+			<div class="sections menu">
+			<p>Menu</p>
+			<a href="MainPage.html">Home</a>
+			<a href="GroupsPage.html">Groups</a>
+			<a href="SettingsPage.html">Settings</a>
+			<a href="SignInPage.html">Sign Out</a>
+			</div>
+				
+			<div class ="sections setTitle">
+				<h4>Account Settings</h4>
+				<div class="row">				<!-- Must use a second row tag to nest another inside the big setTitle section-->
+					<div class ="sections settings1">
+					<p class="settingsP">Username:</p>
+					<br>
+					<p class="settingsP">Email:</p>
+					<br>
+					<p class="settingsP">Phone Notifications Enabled:</p>
+					<br>
+					<p class="settingsP">Phone Number:</p>
+					<br>
+					<p class="settingsP">Currently Connected to Canvas:</p>
+					<br>
+					<p class="settingsP">Canvas Id:</p>
+					<br>
+					<p class="settingsP">New Password:</p>
+					<br>
+					<p class="settingsP">Confirm Password:</p>
+					</div>
+					
+					
+					<div class ="sections settings2">
+					<input type="text" class="settingsInput" id="setUserName" value="Tester123">
+					<br>
+					<input type="text" class="settingsInput" id="setEmail" value="test@gmail.com">
+					<br>
+					<input type="checkbox" class="settingsInput" id="checkPhone">
+					<br>
+					<input type="text" class="settingsInput" id="setPhone" value="NA">
+					<br>
+					<input type="checkbox" class="settingsInput" id="checkCanvas">
+					<br>
+					<input type="text" class="settingsInput" id="setCanvas" value="NA">
+					<br>
+					<input type="text" class="settingsInput" id="updatePass" value="Update Password">
+					<br>
+					<input type="text" class="settingsInput" id="confirmPass" value="Confirm Password">
+					<br>
+					</div>
+				</div>
+					<br>
+					<input type="button" value="Update Settings" class="updateB">
+			</div>
+		</div>
+	
+		<footer class="footer">
+			CEN4090L Group 3
+		</footer>
+	</div>
+</body>
+
+</html>
+

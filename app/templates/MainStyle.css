@@ -221,7 +221,77 @@ body{
 	background-color: #bf935a;
 }
 
-/** THIS IS STYLING FOR SIGN-IN PAGE SPECIFICS**/
+/**THIS IS STYLING FOR GROUPS PAGE**/
+.sections.groups{
+	font-size: 20px;
+	text-align: center;
+	width: 19%;
+}
+
+.sections.messages{
+	text-align: center;
+	border-left-style: solid;
+	border-width: 3px;
+	border-color: #CEB888;
+	width: 74%;
+}
+
+
+/**THIS IS STYLING FOR SETTINGS PAGE SPECIFICS**/
+
+
+.sections.setTitle{
+	font-size: 20px;
+	text-align: center;
+	width: 92%;
+}
+
+.sections.settings1{
+	text-align: right;
+	padding-left: 10px;
+	font-size: 15px;
+	width: 48%;
+	height: 45vh;
+}
+
+.sections.settings2{
+	text-align: left;
+	padding-left: 10px;
+	font-size: 15px;
+	width: 44%;
+	height: 45vh;
+}
+
+.settingsP{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	height: 7px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.settingsInput{
+	padding-top: 1px;
+	padding-bottom: 1px;
+	height: 12px;
+	margin-top: 4px;
+	margin-bottom: 14px;
+}
+
+.updateB{
+	margin-top: 10px;
+	border: 1;
+	font-size: 18px;
+	background-color: #782F40;
+	padding: 12px 100px;
+	transition-duration: .2s;
+}
+
+.updateB:hover {
+	background-color: #580F20;
+}
+
+/** THIS IS STYLING FOR SIGN IN PAGE SPECIFICS**/
 
 .signin{
 	position: relative;
@@ -267,4 +337,3 @@ body{
 .signinB:hover {
 	background-color: #580F20;
 }
-
