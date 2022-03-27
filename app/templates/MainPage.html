@@ -9,16 +9,14 @@
     </script>
 <head>
 <title>Student Companion</title>
-<link rel="stylesheet" href="MainStyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='MainStyle.css') }}" />
 </head>
 <body>
-
+	
 	<div class="workSpace">
 		<div class="header">
 			<h1>The Student Companion</h1>
 		</div>
-	
-	
 		<div class="headGap"><p></p></div>
 		<div class="row">
 			<div class="sections menu">
@@ -51,11 +49,9 @@
 				</div>
 			</div>
 		</div>
-	
 		<footer class="footer">
 			CEN4090L Group 3
 		</footer>
 	</div>
 </body>
-
-</html>
+</html> 
