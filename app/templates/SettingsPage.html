@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Student Companion</title>
-<link rel="stylesheet" href="MainStyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='MainStyle.css') }}" />
 <script src="MainScript.js"></script>
 </head>
 <body>
@@ -17,10 +17,10 @@
 		<div class="row">
 			<div class="sections menu">
 			<p>Menu</p>
-			<a href="MainPage.html">Home</a>
-			<a href="GroupsPage.html">Groups</a>
-			<a href="SettingsPage.html">Settings</a>
-			<a href="SignInPage.html">Sign Out</a>
+			<a href="{{ url_for('index') }}"">Home</a>
+			<a href="{{ url_for('groups') }}">Groups</a>
+			<a href="{{ url_for('settings') }}">Settings</a>
+			<a href="{{ url_for('signin') }}">Sign Out</a>
 			</div>
 				
 			<div class ="sections setTitle">

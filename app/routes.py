@@ -27,4 +27,4 @@ def settings():
 
 @app.route('/signin')
 def signin():
-    return render_template('SettingsPage.html', title='Sign In')
+    return render_template('SignInPage.html', title='Sign In')
