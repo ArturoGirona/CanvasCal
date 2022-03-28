@@ -15,6 +15,7 @@
 		<div class="headGap"><p></p></div>
 		<div class="headGap"><p></p></div>
 		
+		<!--
 		<div class="signin">
 			<h1>Sign In</h1>
 			Email
@@ -30,7 +31,28 @@
 			</div>
 			<input type="button" onclick="checkSignIn()" class="signinB" value="Sign In">
 		</div>
-	
+	-->
+
+		<div class="signin")
+			<form action="" method="post" novalidate>
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.username.label }}<br>
+					{{ form.username(size=32) }}
+					{% for error in form.username.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.password.label }}<br>
+					{{ form.password(size=32) }}<br>
+					{% for error in form.password.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+				<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+				<p>{{ form.submit() }}</p>
+			</form>
 	
 		<footer class="footer">
 			CEN4090L Group 3
