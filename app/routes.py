@@ -1,12 +1,15 @@
-from flask import render_template, flash, redirect
-from app import app
+from flask import render_template, flash, redirect, url_for, request
+from flask_login import login_user, logout_user, current_user, login_required
+from werkzeug.urls import url_parse
+from app import app, db
 from app.forms import LoginForm
+from app.models import User
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
-    user = {'username': 'Arturo'}
-    return render_template('MainPage.html', title='Home', user=user)
+    return render_template('MainPage.html', title='Home')
 
 '''
 @app.route('/calendar')
@@ -28,10 +31,19 @@ def settings():
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me={}'.format(
-            form.username.data, form.remember_me.data
-        ))
-        return redirect(url_for('index')))
+        user = User.query.filter_by(username=form.username.data).first()
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('signin'))
+        login_user(user, remember=form.remember_me.data)
+        return redirect(url_for('index'))
     return render_template('SignInPage.html', title='Sign In', form=form)
+
+@app.route('/signout')
+def signout():
+    logout_user()
+    return redirect(url_for('index'))
