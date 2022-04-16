@@ -31,12 +31,16 @@ def settings():
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
+    user = User.query.all()
+    if not user:
+        u = User(email='test@gmail.com')
+        u.set_password('testing')
+        db.session.add(u)
+        db.session.commit()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
-    print("Loaded Login Form");
     if form.validate_on_submit():
-        print("Checking for username");
         user = User.query.filter_by(email = form.email.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid email address')

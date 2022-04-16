@@ -1,5 +1,26 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h1>Hi, {{ user.username }}!</h1>
+{% block content %}    
+<div class ="sections calendar">
+    <div class="row">
+        <ul class="middleList">
+        <li><a href="">Select View</a></li>
+        <li><a href="">Add Event</a></li>
+        <li><a href="">Find Study Time</a></li>
+        </ul>
+    </div>
+    <p>Insert Calendar Here using Flask</p>
+
+        <div id="includedContent"></div>
+</div>
+
+<div class="sections other">
+    <div class="rightContent">
+    <h2><u>&nbsp;To Do Tasks&nbsp;</u></h2>
+    </div>
+    <div class="rightContent">
+    <h2><u>&nbsp;Messages&nbsp;</u></h2>
+    </div>
+</div>
+
 {% endblock %}
