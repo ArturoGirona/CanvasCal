@@ -3,7 +3,6 @@
 <head>
 <title>Student Companion</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='MainStyle.css') }}" />
-<script src="{{ url_for('static', filename='SignInScript.js') }}"></script>
 </head>
 <body>
 	<div class="workSpace">
@@ -31,14 +30,15 @@
 			</div>
 			<input type="button" onclick="checkSignIn()" class="signinB" value="Sign In">
 		</div>
-	-->
+		-->
 
-		<div class="signin")
-			<form action="" method="post" novalidate>
+		{% block content %}
+		<div class="signin">
+			<form action="" method="POST" novalidate>
 				{{ form.hidden_tag() }}
 				<p>
 					{{ form.email.label }}<br>
-					{{ form.email(size=32) }}
+					{{ form.email(size=32) }}<br>
 					{% for error in form.email.errors %}
 					<span style="color: red;">[{{ error }}]</span>
 					{% endfor %}
@@ -53,7 +53,8 @@
 				<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
 				<p>{{ form.submit() }}</p>
 			</form>
-	
+		</div>
+		{% endblock %}
 		<footer class="footer">
 			CEN4090L Group 3
 		</footer>
