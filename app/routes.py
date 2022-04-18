@@ -29,6 +29,10 @@ def groups():
 def settings():
     return render_template('SettingsPage.html', title='Settings')
 
+@app.route('/addEvent')
+def addEvent():
+    return render_template('AddEvents.html', title='AddEvent')
+
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     user = User.query.all()
