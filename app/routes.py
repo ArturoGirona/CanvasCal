@@ -33,6 +33,10 @@ def settings():
 def addEvent():
     return render_template('AddEvents.html', title='AddEvent')
 
+@app.route('/addStudy')
+def addStudy():
+    return render_template('AddStudy.html', title='AddStudy')
+
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     user = User.query.all()
