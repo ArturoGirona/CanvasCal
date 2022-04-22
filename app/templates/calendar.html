@@ -1,18 +1,3 @@
-<!--
-
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
- <link rel="stylesheet" href="MainStyle.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <title>Calendar</title>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-
-</head>
-
-<body>
--->
    <div class="container">
        <div class="calendar">
            <div class="month">
@@ -23,6 +8,13 @@
                </div>
                <i class="fas fa-angle-right next"></i>
            </div>
+            <div class="row">
+                <ul class="middleList">
+                <li><a href="">Select View</a></li>
+                <li><a href="{{ url_for('addEvent') }}">Add Event</a></li>
+                <li><a href="{{ url_for('addStudy') }}">Find Study Time</a></li>
+                </ul>
+            </div>
            <div class="weekdays">
                <div>Sun</div>
                <div>Mon</div>
@@ -36,6 +28,3 @@
        </div>
    </div>
    <script src="{{ url_for('static', filename='Calendarscript.js') }}"></script>
-<!--
-</body>
-</html> -->
