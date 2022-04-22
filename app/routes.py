@@ -57,7 +57,17 @@ def signin():
         return redirect(url_for('index'))
     return render_template('SignInPage.html', title='Sign In', form=form)
 
+@app.route('/createAcc')
+def createAcc():
+    return render_template('CreateAccountPage.html', title='CreateAcc')
+
+
 @app.route('/signout')
 def signout():
     logout_user()
     return redirect(url_for('index'))
+
+
+@app.route('/signin2')
+def signin2():
+    return render_template('SignInPage.html', title="Sign In")

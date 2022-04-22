@@ -51,7 +51,10 @@
 					{% endfor %}
 				</p>
 				<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-				<p>{{ form.submit() }}</p>
+				<p>{{ form.submit(class="signinB") }}</p>
+			</form>
+			<form action="{{ url_for('createAcc') }}">
+				<input type="submit" value="Create Account" class="signinB">	
 			</form>
 		</div>
 		{% endblock %}
