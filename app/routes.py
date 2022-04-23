@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, createAccForm
+from app.forms import LoginForm, createAccForm, updateSetsForm
 from app.models import User
 
 @app.route('/')
@@ -25,9 +25,25 @@ def tasklist():
 def groups():
     return render_template('GroupsPage.html', title='Groups')
 
-@app.route('/settings')
+@app.route('/settings', methods=['GET', 'POST']) ##Updating settings route to include form to update settings!
 def settings():
-    return render_template('SettingsPage.html', title='Settings')
+    form=updateSetsForm()
+    if request.method=='GET':
+        form.email.data= current_user.email
+    elif form.validate_on_submit(): 
+        if form.newpass.data=='':                #If no new password entered only update email
+            current_user.email=form.email.data
+            db.session.commit()
+            flash('Settings Updated!')
+        else:                                   #Otherwise check if oldpassword is correct then update
+            if current_user.check_password(form.oldpass.data):
+                current_user.email=form.email.data
+                current_user.set_password(form.newpass.data)
+                db.session.commit()
+                flash('Settings Updated!')
+            else:                               #If old pass doesn't match display error
+                flash('Error Incorrect Current Password!')
+    return render_template('SettingsPage.html', title='Settings', form=form)
 
 @app.route('/addEvent')
 def addEvent():

@@ -19,7 +19,7 @@
 					<form action="" method="POST">
 						{{ form.hidden_tag() }}
 						<p>
-							{{ form.email.label }}
+							{{ form.email.label(class="createP") }}
 							<br>
 							{{ form.email(size=32) }}
 							<br>
@@ -28,7 +28,7 @@
 							{% endfor %}
 						</p>
 						<p>
-							{{ form.password.label }}
+							{{ form.password.label(class="createP") }}
 							<br>
 							{{ form.password(size=32) }}
 							<br>
@@ -37,7 +37,7 @@
 							{% endfor %}
 						</p>
 						<p>
-							{{ form.password2.label }}
+							{{ form.password2.label(class="createP") }}
 							<br>
 							{{ form.password2(size=32) }}
 							<br>
@@ -45,7 +45,7 @@
 							<span style="color: red;">[{{ error }}]</span>
 							{% endfor %}
 						</p>
-						<p>{{ form.submit() }}</p>
+						<p>{{ form.submit(class="signinB") }}</p>
 					</form>
 		</div>
 		{% endblock %}

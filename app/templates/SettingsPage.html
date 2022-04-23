@@ -25,47 +25,46 @@
 				
 			<div class ="sections setTitle">
 				<h4>Account Settings</h4>
-				<div class="row">				<!-- Must use a second row tag to nest another inside the big setTitle section-->
-					<div class ="sections settings1">
-					<p class="settingsP">Username:</p>
-					<br>
-					<p class="settingsP">Email:</p>
-					<br>
-					<p class="settingsP">Phone Notifications Enabled:</p>
-					<br>
-					<p class="settingsP">Phone Number:</p>
-					<br>
-					<p class="settingsP">Currently Connected to Canvas:</p>
-					<br>
-					<p class="settingsP">Canvas Id:</p>
-					<br>
-					<p class="settingsP">New Password:</p>
-					<br>
-					<p class="settingsP">Confirm Password:</p>
-					</div>
-					
-					
-					<div class ="sections settings2">
-					<input type="text" class="settingsInput" id="setUserName" value="Tester123">
-					<br>
-					<input type="text" class="settingsInput" id="setEmail" value="test@gmail.com">
-					<br>
-					<input type="checkbox" class="settingsInput" id="checkPhone">
-					<br>
-					<input type="text" class="settingsInput" id="setPhone" value="NA">
-					<br>
-					<input type="checkbox" class="settingsInput" id="checkCanvas">
-					<br>
-					<input type="text" class="settingsInput" id="setCanvas" value="NA">
-					<br>
-					<input type="text" class="settingsInput" id="updatePass" value="Update Password">
-					<br>
-					<input type="text" class="settingsInput" id="confirmPass" value="Confirm Password">
-					<br>
-					</div>
-				</div>
-					<br>
-					<input type="button" value="Update Settings" class="updateB">
+					<form action="" method="POST">	<!--Updated Settings to use Flask Forms!-->
+						{{ form.hidden_tag() }}
+						<p>
+							{{ form.email.label(class="createP") }}
+							<br>
+							{{ form.email(size=32) }}
+							<br>
+							{% for error in form.email.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+						<p>
+							{{ form.oldpass.label(class="createP") }}
+							<br>
+							{{ form.oldpass(size=32) }}
+							<br>
+							{% for error in form.oldpass.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+						<p>
+							{{ form.newpass.label(class="createP") }}
+							<br>
+							{{ form.newpass(size=32) }}
+							<br>
+							{% for error in form.newpass.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+						<p>
+							{{ form.newpass2.label(class="createP") }}
+							<br>
+							{{ form.newpass2(size=32) }}
+							<br>
+							{% for error in form.newpass2.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+						<p>{{ form.submit(class="signinB") }}</p>
+					</form>
 			</div>
 		</div>
 	
