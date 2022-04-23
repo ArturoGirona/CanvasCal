@@ -314,6 +314,15 @@ body{
 	height: 5px;
 	margin-top: 4px;
 	margin-bottom: 4px;
+	align-items: center;
+}
+
+.sections.create1{
+	text-align: center;
+	padding-left: 0px;
+	font-size: 15px;
+	width: 100%;
+	height: 45vh;
 }
 
 .createInput{

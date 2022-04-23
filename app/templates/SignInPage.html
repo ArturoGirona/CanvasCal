@@ -50,6 +50,13 @@
 					<span style="color: red;">[{{ error }}]</span>
 					{% endfor %}
 				</p>
+				{% with messages = get_flashed_messages() %}	<!--Error message display area-->
+						{% if messages %}
+							{% for message in messages %}
+							<p style="color: red;">{{ message }}</p>
+							{% endfor %}
+						{% endif %}
+						{% endwith %}
 				<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
 				<p>{{ form.submit(class="signinB") }}</p>
 			</form>
