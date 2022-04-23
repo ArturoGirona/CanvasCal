@@ -27,6 +27,6 @@ def validate_email(self, email):    #Extra email validation tool to ensure email
 class updateSetsForm(FlaskForm):##Form for updating settings on settings page!
     email=StringField('Email', validators=[DataRequired(), Email()])
     oldpass=StringField('Old Password', validators=[DataRequired()])
-    newpass=StringField('New Password', validators=[DataRequired()])
-    newpass2=StringField('Confirm New Password', validators=[DataRequired(), EqualTo('newpass')])
+    newpass=StringField('New Password')
+    newpass2=StringField('Confirm New Password', validators=[EqualTo('newpass')])
     submit=SubmitField('Update Account Settings')

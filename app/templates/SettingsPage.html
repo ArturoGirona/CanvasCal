@@ -26,7 +26,7 @@
 			<div class ="sections setTitle">
 				<h4>Account Settings</h4>
 					<form action="" method="POST">	<!--Updated Settings to use Flask Forms!-->
-						{{ form.hidden_tag() }}
+						{{ form.hidden_tag() }}		<!--Similar form layout to createAcc Form-->
 						<p>
 							{{ form.email.label(class="createP") }}
 							<br>
@@ -63,6 +63,13 @@
 							<span style="color: red;">[{{ error }}]</span>
 							{% endfor %}
 						</p>
+						{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% for message in messages %}
+							<p style="color: red;">{{ message }}</p>
+							{% endfor %}
+						{% endif %}
+						{% endwith %}
 						<p>{{ form.submit(class="signinB") }}</p>
 					</form>
 			</div>

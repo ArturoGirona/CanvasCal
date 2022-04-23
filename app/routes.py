@@ -32,17 +32,24 @@ def settings():
         form.email.data= current_user.email
     elif form.validate_on_submit(): 
         if form.newpass.data=='':                #If no new password entered only update email
-            current_user.email=form.email.data
-            db.session.commit()
-            flash('Settings Updated!')
+            if current_user.check_password(form.oldpass.data):   #still must veridy old password matches
+                current_user.email=form.email.data
+                db.session.commit()
+                flash('Settings Updated!')
+                return redirect(url_for('settings'))
+            else:
+                flash('Error Incorrect Current Password!')
+                return redirect(url_for('settings'))
         else:                                   #Otherwise check if oldpassword is correct then update
             if current_user.check_password(form.oldpass.data):
                 current_user.email=form.email.data
                 current_user.set_password(form.newpass.data)
                 db.session.commit()
                 flash('Settings Updated!')
+                return redirect(url_for('settings'))
             else:                               #If old pass doesn't match display error
                 flash('Error Incorrect Current Password!')
+                return redirect(url_for('settings'))
     return render_template('SettingsPage.html', title='Settings', form=form)
 
 @app.route('/addEvent')
@@ -74,10 +81,9 @@ def signin():
     return render_template('SignInPage.html', title='Sign In', form=form)
 
 @app.route('/createAcc', methods=['POST', 'GET'])   ##Updated createAcc route to use createAcc Form and 
-def createAcc():                                    ##Accompanying logic
-    flash('Test')
-    form = createAccForm()
-    if form.validate_on_submit():
+def createAcc():                                    ##Accompanying logic is pretty straight forward
+    form = createAccForm()                          ##We create form then if validated set user settings
+    if form.validate_on_submit():                   ##And then add the new user to the DB
         user=User(email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)

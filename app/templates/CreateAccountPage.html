@@ -14,12 +14,12 @@
 		<div class="headGap"><p></p></div>
 
 		{% block content %}	<!--Reworked CreateAccount to make accounts using Flask-->
-		<div class="sections create1">
+		<div class="sections create1"> 
 			<h4>Create Account</h4>
 					<form action="" method="POST">
-						{{ form.hidden_tag() }}
+						{{ form.hidden_tag() }}	<!--Hidden tag/not sure why needed but it is!-->
 						<p>
-							{{ form.email.label(class="createP") }}
+							{{ form.email.label(class="createP") }} <!--form portion for email-->
 							<br>
 							{{ form.email(size=32) }}
 							<br>
@@ -28,7 +28,7 @@
 							{% endfor %}
 						</p>
 						<p>
-							{{ form.password.label(class="createP") }}
+							{{ form.password.label(class="createP") }} <!--Form portion for password-->
 							<br>
 							{{ form.password(size=32) }}
 							<br>
@@ -37,7 +37,7 @@
 							{% endfor %}
 						</p>
 						<p>
-							{{ form.password2.label(class="createP") }}
+							{{ form.password2.label(class="createP") }} <!--Form portion for confirm pw-->
 							<br>
 							{{ form.password2(size=32) }}
 							<br>
@@ -45,7 +45,15 @@
 							<span style="color: red;">[{{ error }}]</span>
 							{% endfor %}
 						</p>
-						<p>{{ form.submit(class="signinB") }}</p>
+						{% with messages = get_flashed_messages() %} <!--Error message spot-->
+						{% if messages %}
+							{% for message in messages %}
+							<p style="color: red;">{{ message }}</p>
+							{% endfor %}
+						{% endif %}
+						{% endwith %}
+
+						<p>{{ form.submit(class="signinB") }}</p> <!--Form portion for submitting form-->
 					</form>
 		</div>
 		{% endblock %}
