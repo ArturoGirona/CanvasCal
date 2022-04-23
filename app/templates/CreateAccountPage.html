@@ -3,7 +3,6 @@
 <head>
 <title>Student Companion</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='MainStyle.css') }}" />
-<script src="MainScript.js"></script>
 </head>
 <body>
 	<div class="workSpace">
@@ -13,56 +12,43 @@
 	
 	
 		<div class="headGap"><p></p></div>
-		
-		<div class="row">
-			<div class ="sections setTitle">
-				<h4>Create Account</h4>
-				<div class="row">				<!-- Must use a second row tag to nest another inside the big setTitle section-->
-					<div class ="sections create1">
-					<p class="createP">Enter Username:</p>
-					<br>
-					<p class="createP">Enter Email:</p>
-					<br>
-					<p class="createP">Enter Password:</p>
-					<br>
-					<p class="createP">Confirm Password:</p>
-					<br>
-					<p class="createP">Connect to Canvas:</p>
-					<br>
-					<p class="createP">Canvas ID (Optional):</p>
-					<br>
-					<p class="createP">Enable Phone (Optional):</p>
-					<br>
-					<p class="createP">Phone Number (Optional):</p>
-					</div>
-					
-					
-					<div class ="sections create2">
-					<input type="text" class="createInput" id="setUserName" value="Tester123">
-					<br>
-					<input type="text" class="createInput" id="setEmail" value="test@gmail.com">
-					<br>
-					<input type="text" class="createInput" id="updatePass" value="Update Password">
-					<br>
-					<input type="text" class="createInput" id="confirmPass" value="Confirm Password">
-					<br>
-					<input type="checkbox" class="createInput" id="checkCanvas">
-					<br>
-					<input type="text" class="createInput" id="setCanvas">
-					<br>
-					<input type="checkbox" class="createInput" id="checkPhone">
-					<br>
-					<input type="text" class="createInput" id="setPhone">
-					<br>
-					</div>
-				</div>
-					<br>
-					<form action="{{ url_for('signin') }}">
-						<input type="submit" value="Create Account" class="createB">
-				</form>
-			</div>
+
+		{% block content %}	<!--Reworked CreateAccount to make accounts using Flask-->
+		<div class="sections create1">
+			<h4>Create Account</h4>
+					<form action="" method="POST">
+						{{ form.hidden_tag() }}
+						<p>
+							{{ form.email.label }}
+							<br>
+							{{ form.email(size=32) }}
+							<br>
+							{% for error in form.email.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+						<p>
+							{{ form.password.label }}
+							<br>
+							{{ form.password(size=32) }}
+							<br>
+							{% for error in form.password.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+						<p>
+							{{ form.password2.label }}
+							<br>
+							{{ form.password2(size=32) }}
+							<br>
+							{% for error in form.password2.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+						<p>{{ form.submit() }}</p>
+					</form>
 		</div>
-	
+		{% endblock %}
 		<footer class="footer">
 			CEN4090L Group 3
 		</footer>
