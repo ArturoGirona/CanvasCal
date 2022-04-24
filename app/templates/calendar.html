@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="{{ url_for('static', filename='MainStyle.css')}}">
+  
+  
+ <title>Calendar</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+</head>
+
+<body>
    <div class="container">
        <div class="calendar">
            <div class="month">
@@ -8,13 +21,6 @@
                </div>
                <i class="fas fa-angle-right next"></i>
            </div>
-            <div class="row">
-                <ul class="middleList">
-                <li><a href="">Select View</a></li>
-                <li><a href="{{ url_for('addEvent') }}">Add Event</a></li>
-                <li><a href="{{ url_for('addStudy') }}">Find Study Time</a></li>
-                </ul>
-            </div>
            <div class="weekdays">
                <div>Sun</div>
                <div>Mon</div>
@@ -24,7 +30,33 @@
                <div>Fri</div>
                <div>Sat</div>
            </div>
-           <div class="days"></div>
+           <br>
+           <div id="days">
+           </div>
        </div>
    </div>
+
+   <div id="newEventPopUp">
+       <h2>New Event</h2>
+
+       <input id="eventTitleInput" placeholder="Event Title" />
+
+       <button id="saveButton">save</button>
+       <button id="cancelButton">Cancel</button>
+   </div>
+
+   <div id="deleteEventPopUp">
+       <h2>Event</h2>
+
+       <p id="eventText"></p>
+
+       <button id="deleteButton">Delete</button>
+       <button id="closeButton">Close</button>
+   </div>
+
+   <div id="PopUpBackDrop"></div>
+
+   
    <script src="{{ url_for('static', filename='Calendarscript.js') }}"></script>
+</body>
+</html>
