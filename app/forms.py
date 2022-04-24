@@ -17,11 +17,10 @@ class createAccForm(FlaskForm):##Form for creating account to add to db
     password=StringField('Password', validators=[DataRequired()])
     password2=StringField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit=SubmitField('Create Account')
-
-def validate_email(self, email):    #Extra email validation tool to ensure email isn't taken yet!
-    user = User.query.filter_by(email=email.data).first()
-    if user is not None:
-        raise ValidationError('This username is taken!')
+    def validate_email(self, email):    #Extra email validation tool to ensure email isn't taken yet!
+        user = User.query.filter_by(email=email.data).scalar() #Note validate_email must be in createAcc class
+        if user is not None:
+            raise ValidationError('This email is already in use!')
 
         
 class updateSetsForm(FlaskForm):##Form for updating settings on settings page!
