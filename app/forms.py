@@ -14,8 +14,8 @@ class LoginForm(FlaskForm):
 
 class createAccForm(FlaskForm):##Form for creating account to add to db
     email=StringField('Email', validators=[DataRequired(), Email()])
-    password=StringField('Password', validators=[DataRequired()])
-    password2=StringField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    password=PasswordField('Password', validators=[DataRequired()])
+    password2=PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit=SubmitField('Create Account')
     def validate_email(self, email):    #Extra email validation tool to ensure email isn't taken yet!
         user = User.query.filter_by(email=email.data).scalar() #Note validate_email must be in createAcc class
@@ -24,8 +24,8 @@ class createAccForm(FlaskForm):##Form for creating account to add to db
 
         
 class updateSetsForm(FlaskForm):##Form for updating settings on settings page!
-    email=StringField('Email', validators=[DataRequired(), Email()])
-    oldpass=StringField('Old Password', validators=[DataRequired()])
-    newpass=StringField('New Password')
-    newpass2=StringField('Confirm New Password', validators=[EqualTo('newpass')])
-    submit=SubmitField('Update Account Settings')
+    email=StringField('Email', validators=[DataRequired(), Email()]) # Email address
+    oldpass=StringField('Old Password', validators=[DataRequired()]) # Old password
+    newpass=StringField('New Password') # New password
+    newpass2=StringField('Confirm New Password', validators=[EqualTo('newpass')]) # Re-type new password
+    submit=SubmitField('Update Account Settings') # Submit button

@@ -2,10 +2,10 @@ from app import db, login
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
+class User(UserMixin, db.Model): # User database model
+    id = db.Column(db.Integer, primary_key=True) # User id number (primary key)
+    email = db.Column(db.String(120), index=True, unique=True) # email address 
+    password_hash = db.Column(db.String(128)) # password
 
     def __repr__(self):
         return '<User {}>'.format(self.email)
@@ -16,6 +16,6 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-@login.user_loader
+@login.user_loader # Function for returning user by id no
 def load_user(id):
     return User.query.get(int(id))
